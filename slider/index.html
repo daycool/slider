@@ -1,0 +1,349 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>izp的slider插件1.0</title>
+<link href="../common/common.css" rel="stylesheet" type="text/css" />
+<style type="text/css">
+
+/*tab list 样式*/
+.info_list{height:24px;line-height:24px;}
+#slider6{width:300px;}
+#slider6 a{text-decoration: none;color:#000;}
+#slider6 a:hover {color: #C00;}
+.mypic_nav{width: 510px;}
+ul.mypic_nav li{margin-right:2px;margin-bottom:2px;}
+ul.mypic_nav li a{width:168px;height:195px;}
+
+</style>
+</head>
+
+<body>
+<div class="ued_plugin_title">slider(焦点图)</div>
+
+<h1>slider插件</h1>
+<h2>需要页面底部引入文件：</h2>
+    <xmp>
+        <script type="text/javascript" src="/js/lib/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/slider.min.js"></script>
+    </xmp>
+
+
+<div class="demoarea">
+    <h2>默认参数</h2>
+    <xmp>
+           defaultConfig = {
+                loop : true,				//true循环自动切换, false只能点击导航控制时切换
+                scrollSpeed : 500,			//速度（单位豪秒）
+                scrollDelay : 4000,			//切换时间间隔（单位豪秒）
+                animationType: "slide",			//切换效果fade淡入、slide_h或slide水平方向 、slide_v竖直方向
+                mouse : 'click',			//click鼠标点击 hover鼠标划过
+                controlNav: 'h',			//导航控制方向h水平，v垂直, none不显示
+                controlNavLeft : false,			//导航控制距左边距离 4个方向其中两个配合使用其它两个设为false
+                controlNavTop : false,			//导航控制上边距离
+                controlNavRight : 10,			//导航控制距右边距离
+                controlNavBottom : 10,			//导航控制距下边距离
+                controlShowNum : true,			//导航控制是否显示数字
+                directionNav : 'none',			//h水平，v垂直, none不显示
+                customNav : false,			//是否自定义导航控制
+                customNavClsName ： '',			//自定义导航控制时className
+                customNavControlClsName : '',		//自定义导航控制时当前控制项className
+                mouseover : function(){},		//自定义导航控制时鼠标移上时触发
+                mouseout : function(){},		//自定义导航控制时鼠标移出时触发
+                itemWidth : 640,			//每一项的宽度
+                itemHeight : 420,			//每一项的高度
+                itemMargin : 10,			//每一项的margin
+                items : 0,				//总项数
+                showItems : 1,				//在页面中显示项数
+                currItem : 0,				//当前显示的基数默认显示 从0开始
+                /*tabList : {
+                        autoLoad : true,
+                        async : true,
+                        url : ['www.baidu.com', 'www.baidu.com', 'www.baidu.com', 'www.baidu.com'],
+                        succCallback : function(){},
+                        failCallback : function(){}
+                },*/
+                tabList : false,			//选项卡列表
+                async : false,				//是否同步
+                pauseOnHover : true,			//mouse 移入时是否暂停
+            };
+</xmp>
+</div>
+<div id="shortcut">
+    快捷入口：<br/>
+    <select id="selectItem"></select>
+</div>
+
+<div class="demoarea">
+	<h3>这是第一个</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+           <div id="slider1" class="slider">
+                 <div class="main">
+                  <ul class="sliders">
+                    <li><a href="javascript:void(0);"><img src="images/1.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/2.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/3.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/4.jpg" /></a></li>
+                  </ul>
+                </div>
+            </div>  
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+        $.slider($('#slider1'));
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>淡入淡出效果</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider2" class="slider">
+              <div class="main">
+              <ul class="sliders">
+                <li><a href="javascript:void(0);"><img src="images/1.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/2.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/3.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/4.jpg" /></a></li>
+              </ul>
+            </div>
+            </div>
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+        $('#slider2').slider({animationType : 'fade'});
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>不显示数字</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider3" class="slider">
+             <div class="main">
+              <ul class="sliders">
+                <li><a href="javascript:void(0);"><img src="images/1.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/2.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/3.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/4.jpg" /></a></li>
+              </ul>
+            </div>
+            </div>    
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+        $('#slider3').slider({controlShowNum : false});
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>鼠标hover切换</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider4" class="slider">
+              <div class="main">
+              <ul class="sliders">
+                <li><a href="javascript:void(0);"><img src="images/1.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/2.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/3.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/4.jpg" /></a></li>
+              </ul>
+            </div>
+            </div>      
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+         $('#slider4').slider({mouse : 'hover'});
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>左右按钮控制</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider5" class="slider">
+              <div class="main">
+              <ul class="sliders">
+                <li><a href="javascript:void(0);"><img src="images/1.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/2.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/3.jpg" /></a></li>
+                <li><a href="javascript:void(0);"><img src="images/4.jpg" /></a></li>
+              </ul>
+            </div>
+            </div>      
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+         $('#slider5').slider({controlNav: 'none', directionNav : 'h'});
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>一屏显示多个--左右按钮控制</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider55" class="slider">
+              <div class="main">
+                  <ul class="sliders">
+                    <li><a><img src="images/q1.jpg"></a></li>
+                    <li><a><img src="images/q2.jpg"></a></li>
+                    <li><a><img src="images/q3.jpg"></a></li>
+                    <li><a><img src="images/q4.jpg"></a></li>
+                    <li><a><img src="images/q5.jpg"></a></li>
+                    <li><a><img src="images/q6.jpg"></a></li>
+                    <li><a><img src="images/q7.jpg"></a></li>
+                    <li><a><img src="images/q8.jpg"></a></li>
+                    <li><a><img src="images/q9.jpg"></a></li>
+                    <li><a><img src="images/q10.jpg"></a></li>
+                    <li><a><img src="images/q11.jpg"></a></li>
+                    <li><a><img src="images/q12.jpg"></a></li>
+                    <li><a><img src="images/q13.jpg"></a></li>
+                    <li><a><img src="images/q14.jpg"></a></li>
+                    <li><a><img src="images/q15.jpg"></a></li>
+                    <li><a><img src="images/q16.jpg"></a></li>
+                    <li><a><img src="images/q17.jpg"></a></li>
+                    <li><a><img src="images/q18.jpg"></a></li>
+                  </ul>
+            </div>
+            </div>      
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+         $('#slider55').slider({
+           itemWidth : 300,
+           itemHeight : 300,
+           controlNav: 'none',
+           directionNav : 'h',
+           showItems : 3,
+         });
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>自定义控制（图片鼠标hover切换）</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+            <div id="slider6" class="slider">
+              	<div class="main" style="left:520px;">
+                  <ul class="sliders">
+                    <li><a href="javascript:void(0);"><img src="images/b1.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b2.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b3.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b4.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b5.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b6.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b7.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b8.jpg" /></a></li>
+                    <li><a href="javascript:void(0);"><img src="images/b9.jpg" /></a></li>
+                  </ul>
+            	</div>
+                 <ul class="custom_nav">
+                    <li><a style="background:url(images/s1.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s2.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s3.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s4.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s5.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s6.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s7.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s8.jpg);" href="#"></a></li> 
+                    <li><a style="background:url(images/s9.jpg);" href="#"></a></li> 
+                  </ul>
+            </div>      
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+         $('#slider6').slider({
+            itemWidth : 430,
+            itemHeight : 591,
+            mouse : 'hover',
+            controlNav : 'none',
+            customNav : true,
+            customNavClsName : 'mypic_nav',
+            mouseover : function(a){
+                $(a).css('background-position', '168px 0');
+            },
+            mouseout :  function(a){
+                $(a).css('background-position', '0 0');
+            }
+        });
+        </xmp>
+    </div>
+</div>
+
+<div class="demoarea">
+	<h3>Tab List</h3>
+    <div></div>
+	<div class="html">
+    	<xmp>
+           <div id="slider7" class="slider">
+              <ul class="tab_list">
+                    <li>国内</li>
+                    <li>国际</li>
+                    <li>财经</li>
+                    <li>科技</li>
+                </ul>
+                <div class="main">
+                  <ul class="sliders">
+                    <li><span>加载中。。。。</span></li>
+                    <li><span>加载中。。。。</span></li>
+                    <li><span>加载中。。。。</span></li>
+                    <li><span>加载中。。。。</span></li>
+                    <li><span>加载中。。。。</span></li>
+                  </ul>
+                </div>
+            </div>        
+        </xmp>
+    </div>
+    <div class="code">
+    	<xmp>
+          $('#slider7').slider({tabList : {
+			autoLoad : true,
+			async : true,
+			dataType : 'json',
+			url : ['demo.php?sort=1', 'demo.php?sort=2', 'demo.php?sort=3', 'demo.php?sort=4'],
+			succCallback : function(data, $o){
+                            var s = '<ul class="info_list">';
+                            $.each(data.json, function(j, item){
+                                s += '<li><a href="'+ this.url +'">' + this.text + '</a></li>';
+                            });
+                            s += '</ul>';
+                            $o.html(s);	
+                        }
+            },
+            mouse : 'mouse',
+            animationType : 'slide_v',
+            scrollSpeed : 0,
+            itemWidth : 300,
+            itemHeight : 250
+            });
+        </xmp>
+    </div>
+</div>
+
+<script type="text/javascript" src="../common/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="js/slider.js"></script>
+<script type="text/javascript" src="../common/common.js"></script>
+
+</body>
+</html>

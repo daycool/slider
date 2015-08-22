@@ -1,0 +1,128 @@
+img{ border:0px;}
+div.slider{ /*overflow:hidden; */position:relative;}
+div.slider .main{ overflow:hidden; position:relative;}
+ul.sliders{
+	padding:0px;
+	margin:0px;
+	position:relative;
+}
+
+ul.sliders li{display: block; float:left;}
+ul.slide_h li{float: left;}
+ul.slide_v li{float: none;}
+ul.fade li{float: none; position:absolute; left:0px; top:0px;}
+
+div.slider .control_nav{
+	position:absolute;
+	padding-left:10px;
+	padding-bottom:10px;
+}
+
+ul.control_nav li{
+	background-color:#716564;
+	color: white;
+	border-radius: 10px;
+	-moz-border-radius: 10px;
+	-webkit-border-radius: 10px;
+	margin:5px 5px 0px 0px;
+	cursor:pointer;
+	display: block;
+	width: 15px; 
+	height:15px;
+	line-height:15px;
+	text-align:center;
+}
+
+ul.control_nav_h li{float: left;}
+
+ul.control_nav_v li{float: none;}
+
+ul.control_nav_num li{
+	border-radius: 12px;
+	-moz-border-radius: 12px;
+	-webkit-border-radius: 12px;
+	width: 22px; 
+	height:22px;
+	line-height:22px;
+}
+
+ul.control_nav li.focus, ul.control_nav li.curr, ul.direction_nav a.focus, ul.direction_nav a.curr{background-color:#C80002;}
+
+ul.direction_nav li a{
+	position: absolute;
+	z-index: 10;
+	cursor: pointer;
+	height: 30px;
+	width: 30px;
+	background-color: #716564;
+	_background-color: #b8b2b1;
+	color: white;
+	text-align: center;
+	font: bold 24px 宋体b8b\4f53, Hei;
+	line-height: 30px;
+	border-radius: 20px;
+	-ms-border-radius: 20px;
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	-o-border-radius: 20px;
+	-khtml-border-radius: 20px;
+}
+
+ul.direction_nav .slider_prev_v{
+	top:0px;
+	left:48%;
+	background-image:url(../img/dir_nav.png);
+	background-position:0 0;
+}
+
+ul.direction_nav .slider_next_v{
+	bottom:0px;
+	left:48%;
+	background-image:url(../img/dir_nav.png);
+	background-position:30px 0;
+}
+
+ul.direction_nav .slider_prev_h{
+	left:0px;
+	top: 48%;
+}
+
+ul.direction_nav .slider_next_h{
+	right:0px;
+	top: 48%;
+}
+
+ul.tab_list{
+	height: 30px;
+	line-height:30px;
+	background:#F4F4F4;
+	padding:0 20px;
+	border-bottom:1px solid #DDD;
+	position:relative;
+}
+
+ul.tab_list li{
+	float:left;
+	padding: 0 15px;
+}
+
+ul.tab_list li.focus, ul.tab_list li.curr{
+	background: white;
+	cursor: pointer;
+}
+
+.custom_nav{
+	margin:0;
+	padding:0;
+	list-style:none;
+	width: 510px;
+	position: absolute;
+	top:-0px;
+}
+
+ul.custom_nav li{
+	float:left;
+}
+ul.custom_nav li a{
+	display:block;
+}
